@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block sidebar %}
+{% include 'inc/_equip_types_sidebar.html' %}
+{% endblock %}
+
+{% block content %}
+<div class="card" style="width: 100%">
+  <div class="card-body">
+    {% if object.photo %}
+    <img src="{{ object.photo.url }}" class="card-img-top" alt="...">
+    {% else %}
+    <p>No photo:(</p>
+    {% endif %}
+    <h5 class="card-title">{{object.name}}</h5>
+    <p class="card-text">{{object.about}}</p>
+    <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">Another link</a>
+  </div>
+</div>
+{% endblock %}

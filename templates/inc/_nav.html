@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <!--<a class="nav-link active" aria-current="page" href="{% url 'home' %}">Главная</a>-->
+                    <a class="nav-link" href="{% url 'home' %}">Главная</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'muscles' %}">Мышцы</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'exercises' %}">Упражнения</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'equipments' %}">Инвентарь</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'strainings' %}">Тренировки</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Добавить
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{% url 'add_muscle' %}">Мышца</a>
+                        <a class="dropdown-item" href="#">Группа мышц</a>
+                        <a class="dropdown-item" href="{% url 'add_sexercise' %}">Упражнение</a>
+                        <a class="dropdown-item" href="{% url 'add_sequipment' %}">Инвентарь</a>
+                        <a class="dropdown-item" href="{% url 'add_straining' %}">Тренировка</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="{% url 'client' %}" tabindex="-1" aria-disabled="true">Личный кабинет</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

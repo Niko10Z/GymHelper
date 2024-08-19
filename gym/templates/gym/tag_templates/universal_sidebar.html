@@ -1,0 +1,8 @@
+<div class="list-group">
+  Universal sidebar
+  {% for elem in objects_query %}
+    <a href="{{ elem.get_absolute_url }}" class="list-group-item list_group_item_action">
+      {{ elem.name }}
+    </a>
+  {% endfor %}
+</div>

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block sidebar %}
+{% include 'inc/_muscle_groups_sidebar.html' %}
+{% endblock %}
+
+{% block content %}
+{% for elem in muscle_groups %}
+<div class="row">
+  <div class="card">
+    <div class="card-body">
+      <h3 class="card-title"><a href="{{elem.get_absolute_url}}">{{ elem.name }}</a></h3>
+      <p class="card-text">{{ elem.about|truncatewords:10 }}</p>
+      <div class="row">
+        {% for muscle in elem.get_tree_first %}
+        <div class="col-sm-4">
+          <div class="card">
+            {% if muscle.photo %}
+            <img src="{{ muscle.photo.url }}" class="card-img-top" alt="...">
+            {% else %}
+            <p>No photo:(</p>
+            {% endif %}
+            <div class="card-body">
+              <h5 class="card-title">{{ muscle.name }}</h5>
+              <p class="card-text">{{ muscle.about|truncatewords:10 }}</p>
+              <a href="{{muscle.get_absolute_url}}" class="btn btn-primary">Подробнее</a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
+{% endblock %}

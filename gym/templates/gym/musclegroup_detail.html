@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block sidebar %}
+{% include 'inc/_muscle_groups_sidebar.html' %}
+{% endblock %}
+
+{% block content %}
+<h3>Группа - {{ object.name }}</h3>
+<div class="row">
+  {% for elem in object.get_all_muscles %}
+  <div class="col-sm-4">
+    <div class="card">
+      {% if elem.photo %}
+      <img src="{{ elem.photo.url }}" class="card-img-top" alt="...">
+      {% else %}
+      <p>No photo:(</p>
+      {% endif %}
+      <div class="card-body">
+        <h5 class="card-title">{{ elem.name }}</h5>
+        <p class="card-text">{{ elem.about|truncatewords:10 }}</p>
+        <a href="{{elem.get_absolute_url}}" class="btn btn-primary">Подробнее</a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

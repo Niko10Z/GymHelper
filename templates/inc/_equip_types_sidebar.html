@@ -1,0 +1,14 @@
+{% load gym_tags %}
+
+{% comment %}
+<div class="list-group">
+  {% get_equipment_types as equipment_types %}
+  {% for elem in equipment_types %}
+  <a href="{% url 'equipments' elem.pk %}" class="list-group-item list_group_item_action">
+    {{ elem.name }}
+  </a>
+  {% endfor %}
+</div>
+{% endcomment %}
+
+{% show_equipment_types %}

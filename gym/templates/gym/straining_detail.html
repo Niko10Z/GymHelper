@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block sidebar %}
+SideBar will be here
+{% endblock %}
+
+{% block content %}
+<div class="card" style="width: 100%">
+  <div class="card-body">
+      <h3 class="card-title">{{ object }}</h3>
+      <ul class="list-group">
+          {% for elem in object.trainingexercise_set.all %}
+          <li class="list-group-item">
+              <h5 class="card-title">{{ elem }}</h5>
+              <p>
+                  {% for item in elem.traininground_set.all %}
+                      <a href="{% url 'update_traininground' item.pk %}" class="card-link">
+                      {% if item.weight %}
+                      [{{ item.weight }}]
+                      {% endif %}
+                      <b>
+                          {{ item.plan_try }}
+                          {% if item.fact_try %}
+                          / {{ item.fact_try }}
+                          {% endif %}
+                      </b>
+                      </a>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" class="bi bi-stopwatch" viewBox="0 0 16 16">
+                          <path d="M8.5 5.6a.5.5 0 1 0-1 0v2.9h-3a.5.5 0 0 0 0 1H8a.5.5 0 0 0 .5-.5z"/>
+                          <path d="M6.5 1A.5.5 0 0 1 7 .5h2a.5.5 0 0 1 0 1v.57c1.36.196 2.594.78 3.584 1.64l.012-.013.354-.354-.354-.353a.5.5 0 0 1 .707-.708l1.414 1.415a.5.5 0 1 1-.707.707l-.353-.354-.354.354-.013.012A7 7 0 1 1 7 2.071V1.5a.5.5 0 0 1-.5-.5M8 3a6 6 0 1 0 .001 12A6 6 0 0 0 8 3"/>
+                      </svg>
+                  {% endfor %}
+
+                  <a href="{% url 'add_traininground' elem.pk %}" class="btn btn-info" role="button">+</a>
+              </p>
+          </li>
+          {% endfor %}
+      </ul>
+    <a href="{% url 'add_trainingexercise' object.pk %}" class="btn btn-info" role="button">Добавить упражнение</a>
+  </div>
+  <a href="{% url 'update_straining' object.pk %}" class="btn btn-secondary" role="button">Редактировать тренировку</a>
+</div>
+{% endblock %}

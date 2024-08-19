@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block sidebar %}
+{% include 'inc/_difficulty_sidebar.html' %}
+{% endblock %}
+
+{% block content %}
+<div class="row">
+  {% for elem in exercises %}
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{ elem.name }}</h5>
+        <p class="card-text">{{ elem.about|truncatewords:10 }}</p>
+        <a href="{{elem.get_absolute_url}}" class="btn btn-primary">Подробнее</a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

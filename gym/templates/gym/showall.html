@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+</head>
+<body>
+<h1>{{ title }}</h1>
+<ul>
+    {% for elem in objs %}
+    <li>
+        <div>
+            <h3>{{ elem.name }}</h3>
+            <h5>Создано: {{ elem.created_at|date:"Y-m-d" }}</h5>
+            <h5>Обновлено: {{ elem.updated_at|date:"Y-m-d H:i:s" }}</h5>
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+</body>
+</html>

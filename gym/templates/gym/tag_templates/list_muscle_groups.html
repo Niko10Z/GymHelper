@@ -1,0 +1,17 @@
+<!--<div class="list-group">-->
+<!--  {% for elem in muscle_groups %}-->
+<!--  <a href="{% url 'muscle_group' elem.pk %}" class="list-group-item list_group_item_action">-->
+<!--    {{ elem.name }}-->
+<!--  </a>-->
+<!--  {% endfor %}-->
+<!--  {{ arg1 }}-->
+<!--  <br>-->
+<!--  {{ arg2 }}-->
+<!--</div>-->
+<div class="list-group">
+  {% for elem in muscle_groups %}
+    <a href="{{ elem.get_absolute_url }}" class="list-group-item list_group_item_action">
+      {{ elem.name }}
+    </a>
+  {% endfor %}
+</div>

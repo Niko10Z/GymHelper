@@ -1,0 +1,19 @@
+{% load gym_tags %}
+<!--Начало закомментированного-->
+{% comment %}
+<div class="list-group">
+  {% get_muscle_groups as muscle_groups %}
+  {% for elem in muscle_groups %}
+  <a href="{% url 'muscle_group' elem.pk %}" class="list-group-item list_group_item_action">
+    {{ elem.name }}
+  </a>
+  {% endfor %}
+</div>
+
+<br>
+
+{% show_muscle_groups arg2='GYM' %}
+{% endcomment %}
+<!--Конец закомментированного-->
+
+{% show_muscle_groups %}

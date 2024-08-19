@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block sidebar %}
+SideBar will be here
+{% endblock %}
+
+{% block content %}
+<h1>Создание тренировки</h1>
+<form action="{% url 'add_straining' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <!--  Способ вывода формы N1  -->
+    {{ form.as_p }}
+
+    <button type="submit" class="btn btn-primary btn-block">Создать тренировку</button>
+</form>
+{% endblock %}

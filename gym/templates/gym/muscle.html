@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block sidebar %}
+{% include 'inc/_muscle_groups_sidebar.html' %}
+{% endblock %}
+
+{% block content %}
+<div class="card" style="width: 100%">
+  <div class="card-body">
+    {% if muscle.photo %}
+    <img src="{{ muscle.photo.url }}" class="card-img-top" alt="...">
+    {% else %}
+    <p>No photo:(</p>
+    {% endif %}
+    <h5 class="card-title">{{muscle.name}}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">
+      <a href="{% url 'muscle_group' muscle.muscle_group.pk %}">
+        {{muscle.muscle_group.name}}
+      </a>
+    </h6>
+    <p class="card-text">{{muscle.about}}</p>
+    <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">Another link</a>
+  </div>
+</div>
+{% endblock %}

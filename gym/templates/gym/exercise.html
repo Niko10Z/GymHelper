@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block sidebar %}
+{% include 'inc/_difficulty_sidebar.html' %}
+{% endblock %}
+
+{% block content %}
+<div class="card" style="width: 100%">
+  <div class="card-body">
+    <h4 class="card-title">{{exercise.name}}</h4>
+    <h5 class="card-subtitle mb-2 text-muted">
+      <a href="{% url 'exercise_by_diff' exercise.difficulty %}">
+        Сложность - {{exercise.difficulty}}
+      </a>
+    </h5>
+    <p class="card-text">{{exercise.about}}</p>
+    <div class="row">
+        <div class="col-md-6">
+          <h5>Включаемые мускулы</h5>
+          {% for elem in exercise.muscleusing_set.all %}
+          <p><a href="{% url 'update_muscleusing' elem.pk %}" class="card-link">{{ elem }}</a></p>
+          {% endfor %}
+          <a href="{% url 'add_muscleusing' exercise.pk %}" class="card-link">Добавить</a>
+        </div>
+        <div class="col-md-6">
+          <h5>Необходимый инвентарь</h5>
+          {% for elem in exercise.equipmentusing_set.all %}
+          <p><a href="{% url 'update_equipmentusing' elem.pk %}" class="card-link">{{ elem }}</a></p>
+          {% endfor %}
+          <a href="{% url 'add_equipmentusing' exercise.pk %}" class="card-link">Добавить</a>
+        </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

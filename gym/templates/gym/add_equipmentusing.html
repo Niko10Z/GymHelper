@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block sidebar %}
+SideBar will be here
+{% endblock %}
+
+{% block content %}
+<h1>Добавление необходимого инвентаря</h1>
+<form action="#" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <!--  Способ вывода формы N1  -->
+    {{ form.as_p }}
+
+    <button type="submit" class="btn btn-primary btn-block">Сохранить</button>
+</form>
+{% endblock %}

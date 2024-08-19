@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block sidebar %}
+SideBar will be here
+{% endblock %}
+
+{% block content %}
+<h1>Добавление упражнения тренировки</h1>
+<form action="#" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <!--  Способ вывода формы N1  -->
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary btn-block">Включить упражнение</button>
+</form>
+<br/>
+<form action="{% url 'add_sexercise' %}" method="post">
+    {% csrf_token %}
+    <input type="hidden" name="return_to" value="{{ request.path }}">
+    <button type="submit" class="btn btn-primary btn-block">Добавить упражнение</button>
+</form>
+{% endblock %}
